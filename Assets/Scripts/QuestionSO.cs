@@ -2,7 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestionSO : MonoBehaviour
+[CreateAssetMenu(menuName = "Quiz Question", fileName = "New Question")]
+public class QuestionSO : ScriptableObject
 {
-    
+    [TextArea(2,5)]
+    [SerializeField] string question = "Enter new question text here";
+
+    public string getQuestion() {
+        return question;
+    }
 }
