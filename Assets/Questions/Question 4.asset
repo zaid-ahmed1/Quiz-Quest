@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: Question 4
   m_EditorClassIdentifier: 
   question: What is the meaning of the first word revealed in the Quran?
+  answers:
+  - Write
+  - Speak
+  - Think
+  - Read
+  correctAnswerIndex: 3

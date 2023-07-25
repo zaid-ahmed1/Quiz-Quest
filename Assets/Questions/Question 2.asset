@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: Question 2
   m_EditorClassIdentifier: 
   question: Which prophet is mentioned the most in the Quran?
+  answers:
+  - Musa AS
+  - Isa AS
+  - Nuh AS
+  - Ibrahim AS
+  correctAnswerIndex: 0

@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: Question 5
   m_EditorClassIdentifier: 
   question: "Which surah of the Quran is known as \"The Dawn\"?\r"
+  answers:
+  - Ash-Shams
+  - Al-Kafiroon
+  - Al-Fajr
+  - Al-Mulk
+  correctAnswerIndex: 2

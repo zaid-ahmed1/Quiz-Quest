@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: Question 3
   m_EditorClassIdentifier: 
   question: How many chapters (surah) are the Quran?
+  answers:
+  - 120
+  - 115
+  - 121
+  - 114
+  correctAnswerIndex: 3

@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: Question 1
   m_EditorClassIdentifier: 
   question: In which month was the Quran first revealed?
+  answers:
+  - Muharram
+  - Ramadan
+  - Shawwal
+  - Dhu al-Hijjah
+  correctAnswerIndex: 1
