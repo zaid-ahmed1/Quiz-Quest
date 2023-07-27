@@ -15,7 +15,7 @@ MonoBehaviour:
   question: How many chapters (surah) are the Quran?
   answers:
   - 120
-  - 115
   - 121
+  - 113
   - 114
   correctAnswerIndex: 3

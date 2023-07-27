@@ -15,7 +15,7 @@ MonoBehaviour:
   question: What is the meaning of the first word revealed in the Quran?
   answers:
   - Write
+  - Read
   - Speak
   - Think
-  - Read
-  correctAnswerIndex: 3
+  correctAnswerIndex: 1
