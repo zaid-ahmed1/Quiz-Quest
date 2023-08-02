@@ -10,15 +10,18 @@ using System.Linq;
 public class Quiz : MonoBehaviour
 {
 
+    public bool isComplete;
+    public int questionsCount;
+
     [Header("Questions")]
     [SerializeField] TextMeshProUGUI questionText;
-    List<QuestionSO> questions = new List<QuestionSO>();
+    public List<QuestionSO> questions = new List<QuestionSO>();
     QuestionSO currentQuestion;
 
     [Header("Answers")]
     [SerializeField] GameObject[] answerButtons;
     int correctAnswerIndex;
-    bool hasAnsweredEarly;
+    bool hasAnsweredEarly = true;
 
     [Header("Button Colours")]
     [SerializeField] Sprite defaultAnswerSprite;
@@ -35,16 +38,14 @@ public class Quiz : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
     
 
-    void Start()
+    void Awake()
     {
-
         LoadQuestions();
         GetNextQuestion();
-
+        questionsCount = questions.Count;
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
         timer = FindObjectOfType<Timer>();
     }
-
 
 
     void Update()
@@ -52,6 +53,9 @@ public class Quiz : MonoBehaviour
         timerImage.fillAmount = timer.fillFraction;
         if (timer.loadNextQuestion)
         {
+            if (scoreKeeper.GetIncorrectAnswers() > 1 || scoreKeeper.GetQuestionsSeen() == questionsCount) {
+                isComplete = true;
+            }
             hasAnsweredEarly = false;
             scoreKeeper.IncrementQuestionsSeen();
             GetNextQuestion();

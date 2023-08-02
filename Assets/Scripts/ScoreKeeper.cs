@@ -8,6 +8,10 @@ public class ScoreKeeper : MonoBehaviour
     int correctAnswers = 0;
     int questionsSeen = 0;
 
+    private void Update() {
+        
+    }
+
     public int GetCorrectAnswers() {
         return correctAnswers;
     }
@@ -24,12 +28,17 @@ public class ScoreKeeper : MonoBehaviour
         questionsSeen++;
     }
 
-    public float CalculatePercentage() {
-        return Mathf.RoundToInt((float)correctAnswers / (float)questionsSeen * 100); 
-    }
 
     public string ShowScore() {
         return (correctAnswers.ToString() + "/" + questionsSeen.ToString());
+    }
+
+    public string ShowFinalScore() {
+        return ((correctAnswers).ToString() + "/" + (questionsSeen-1).ToString());
+    }
+
+    public int GetIncorrectAnswers() {
+        return questionsSeen - correctAnswers;
     }
 
 }

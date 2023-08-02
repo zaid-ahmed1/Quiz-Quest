@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3ee9f5301d02649a5585d06bcfbe6c, type: 3}
   m_Name: Question3
   m_EditorClassIdentifier: 
-  question: Enter new question text here
+  question: alkhfjaka
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 1
+  - 2
+  - 3
+  - 34
   correctAnswerIndex: 0
