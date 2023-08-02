@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a3ee9f5301d02649a5585d06bcfbe6c, type: 3}
-  m_Name: Question 3
+  m_Name: Question3
   m_EditorClassIdentifier: 
-  question: How many chapters (surah) are the Quran?
+  question: Enter new question text here
   answers:
-  - 120
-  - 121
-  - 113
-  - 114
-  correctAnswerIndex: 3
+  - 
+  - 
+  - 
+  - 
+  correctAnswerIndex: 0

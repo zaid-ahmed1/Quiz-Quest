@@ -4,12 +4,15 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using System.IO;
+using System.Linq;
 
 public class Quiz : MonoBehaviour
 {
+
     [Header("Questions")]
     [SerializeField] TextMeshProUGUI questionText;
-    [SerializeField] List<QuestionSO> questions = new List<QuestionSO>();
+    List<QuestionSO> questions = new List<QuestionSO>();
     QuestionSO currentQuestion;
 
     [Header("Answers")]
@@ -34,9 +37,15 @@ public class Quiz : MonoBehaviour
 
     void Start()
     {
+
+        LoadQuestions();
+        GetNextQuestion();
+
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
         timer = FindObjectOfType<Timer>();
     }
+
+
 
     void Update()
     {
@@ -58,12 +67,17 @@ public class Quiz : MonoBehaviour
     void TimeOver()
     {
         Debug.Log("Time up");
-        DisplayAnswer(4); // Show the correct answer
+        DisplayAnswer(4); 
         SetButtonState(false);
-        scoreText.text = "Score: " + scoreKeeper.ShowScore(); // Update the score text
+        scoreText.text = "Score: " + scoreKeeper.ShowScore(); 
     }
 
 
+    void LoadQuestions()
+    {
+        QuestionSO[] loadedQuestions = Resources.LoadAll<QuestionSO>("Questions");
+        questions.AddRange(loadedQuestions);
+    }
 
     void DisplayAnswer(int index) {
         Debug.Log("In display answer");
@@ -111,7 +125,6 @@ public class Quiz : MonoBehaviour
     {
         int index = UnityEngine.Random.Range(0, questions.Count);
         currentQuestion = questions[index];
-
         if (questions.Contains(currentQuestion)) {
             questions.Remove(currentQuestion);
         }
@@ -136,5 +149,14 @@ public class Quiz : MonoBehaviour
             buttonImage = answerButtons[i].GetComponent<Image>();
             buttonImage.sprite = defaultAnswerSprite;
         }
+    }
+
+
+    QuestionSO CreateQuestion(string questionText, string[] answers, int correctAnswerIndex) {
+        QuestionSO newQuestion = ScriptableObject.CreateInstance<QuestionSO>();
+        newQuestion.SetQuestion(questionText);
+        newQuestion.SetOptions(answers);
+        newQuestion.SetCorrectAnswerIndex(correctAnswerIndex);
+        return newQuestion;
     }
 }
